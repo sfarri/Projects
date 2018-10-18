@@ -1,12 +1,19 @@
-var iPromise = new Promise((resolve, reject) => {
-    if (true) {
-        throw 'something broke. jk im a troll'
-        resolve('resolved')
-    } else {
-        reject('rejected!')
+function showHelp(help) {
+    console.log(help);
+  }
+  
+  function setupHelp() {
+    var helpText = [
+        {'id': 'email', 'help': 'Your e-mail address'},
+        {'id': 'name', 'help': 'Your full name'},
+        {'id': 'age', 'help': 'Your age (you must be over 16)'}
+      ];
+  
+    for (var i = 0; i < helpText.length; i++) {
+      var item = helpText[i];
+        function() {
+        showHelp(item.help);
     }
-});
-console.log(1)
-setTimeout(console.log, 0, 3)
-iPromise.then(console.log('otherwords (4)'), console.log).catch(console.log)
-console.log(2)
+  }
+  
+  setupHelp();
