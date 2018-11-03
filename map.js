@@ -1,23 +1,22 @@
 var http = require('http'),
     async = require('async'),
-        url = process.argv[2]
+        path1 = process.argv[2],
+        path2 = process.argv[3];
 
-async.reduce(['one', 'two', 'three'], 0, (memo, item, callback) => {
+async.map([path1, path2], (path, callback) => {
     var body = '';
-    http.get(`${url}?number=${item}`, res => {
+    http.get(path, res => {
         res.on('data', chunk => {
             body += chunk.toString();
         }).on('end', () => {
-            callback(null, memo + Number(body));
+            callback(null, body);
         }).on('error', err => {
             callback(err);
         });
     }).on('error', err => {
         callback(err);
     });
-}, (err, result) => {
-    if (err) {
-        return console.error(err);
-    }
-    console.log(result);
+}, (err, results) => {
+    if (err) return console.log(err);
+    return console.log(results);
 });
