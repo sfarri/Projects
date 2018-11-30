@@ -1,16 +1,12 @@
-var input = true
+var input = true;
 
-var promise = new Promise((fulfill, reject) => {
-    // Your solution here
+var promise = new Promise((resolve, reject) => {
     setTimeout(() => {
         if (input == true) {
-            return fulfill("FULFILLED!"); 
-        }
-        else {
-            return reject("FAILED!");   
+            return resolve("FULFILLED!");
+        } else {
+            return reject(new Error("REJECTED!"));
         }
     }, 300);
-  });
-
-  promise.then(console.log)
-  // Your solution here
+});
+promise.then(console.log, error => console.error(error.message))
