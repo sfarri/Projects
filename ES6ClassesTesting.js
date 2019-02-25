@@ -78,7 +78,7 @@ function main() {
     let circle = new Circle(5);
     let square = new Rectangle(5, 5);
 
-    //Circle Driver, also Point and the calcArea, grow method
+    //Circle Driver, also Point, calcArea and grow method
     console.log(`Gotta start somewhere! ${circle._radius}`);
     circle.grow();
     console.log(`Gotta git big! ${circle._radius}`);
@@ -92,7 +92,7 @@ function main() {
 
     console.log('\n--- --- --- ---\n')
 
-    //Square(Rectangle), shrink also Shape Driver
+    //Square(Rectangle), shrink and Shape Driver
     console.log(`I am fickle, but my current favorite color is: ${square._color}`);
     square.changeColor("red");
     console.log(`Nevermind, now it's: ${square._color}`);
